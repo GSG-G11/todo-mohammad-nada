@@ -3,6 +3,7 @@ export default function Card({
   task: { id, title, desc, label, time, isDone },
   openModal,
   changeCheck,
+  deleteTask,
 }) {
   return (
     <div className="card">
@@ -27,6 +28,14 @@ export default function Card({
         value="Update"
       >
         Update
+      </button>
+      <button
+        onClick={() => {
+          deleteTask(id);
+        }}
+        value="Delete"
+      >
+        Delete
       </button>
     </div>
   );

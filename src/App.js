@@ -1,9 +1,8 @@
 // import logo from './logo.svg';
 import { Component } from 'react';
-import './App.css';
 import Modal from './components/Modal/Modal';
 import Cards from './components/Modal/Cards';
-
+import './App.css';
 export default class App extends Component {
   state = {
     tasks: [
@@ -69,6 +68,13 @@ export default class App extends Component {
     this.setState({ tasks: tasks });
   };
 
+  deleteTask = (id) => {
+    const tasksAfterDeleted = this.state.tasks.filter((task) => {
+      return task.id !== id;
+    });
+    this.setState({ tasks: tasksAfterDeleted });
+  };
+
   closeModal(value) {
     if (value === 'Update') this.setState({ isEditing: false });
     else this.setState({ isEditing: false });
@@ -106,7 +112,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { labels, isEditing, currentTask, isOpen, tasks } = this.state;
+    const { tasks } = this.state;
     return (
       <div>
         <button onClick={() => this.openModal('Add')} value="Add">
@@ -117,6 +123,7 @@ export default class App extends Component {
           tasks={tasks}
           openModal={this.openModal}
           changeCheck={this.changeCheck}
+          deleteTask={this.deleteTask}
         />
       </div>
     );

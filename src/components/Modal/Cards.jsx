@@ -1,6 +1,6 @@
 import Card from './Card';
 
-export default function Cards({ tasks, openModal, changeCheck }) {
+export default function Cards({ tasks, openModal, changeCheck, deleteTask }) {
   return (
     <ul>
       {tasks.reverse().map((task, index) => {
@@ -10,6 +10,7 @@ export default function Cards({ tasks, openModal, changeCheck }) {
             openModal={openModal}
             task={task}
             changeCheck={changeCheck}
+            deleteTask={deleteTask}
           />
         );
       })}
