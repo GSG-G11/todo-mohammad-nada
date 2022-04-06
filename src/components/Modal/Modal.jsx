@@ -1,20 +1,25 @@
-export default function Modal({ labels, addTask, isEditing }) {
+export default function Modal({
+  labels,
+  addTask,
+  isEditing,
+  editTask,
+  currentTask = {},
+}) {
   let defaultTitle = '';
   let defaultDesc = '';
   let defaultTime = '';
   let defaultLabel = 'select a label';
-  let defaultCheck = false;
   let wordBtn = 'Add';
   let onSubmitFunc = addTask;
 
   if (isEditing) {
-    defaultTitle = '';
-    defaultDesc = '';
-    defaultTime = '';
-    defaultLabel = 'select a label';
-    defaultCheck = false;
-    wordBtn = 'Add';
-    onSubmitFunc = '';
+    const { title, desc, label, time } = currentTask;
+    defaultTitle = title;
+    defaultDesc = desc;
+    defaultTime = time;
+    defaultLabel = label;
+    wordBtn = 'Update';
+    onSubmitFunc = editTask;
   }
   return (
     <div>
@@ -50,9 +55,6 @@ export default function Modal({ labels, addTask, isEditing }) {
           </select>
         </label>
 
-        <label>
-          <input type="checkbox" defaultChecked={defaultCheck} name="isDone" />
-        </label>
         <button name="action" value={wordBtn} type="submit">
           {wordBtn}
         </button>
