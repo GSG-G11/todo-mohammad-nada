@@ -5,17 +5,16 @@ export default function Cards({
   openModal,
   changeCheck,
   deleteTask,
-  isFilterd,
+  isFiltered,
   filteredTasks,
 }) {
-
-  if (isFilterd) {
+  if (isFiltered) {
     tasks = filteredTasks;
   }
 
   return (
     <ul>
-      {tasks.reverse().map((task, index) => {
+      {tasks.map((task, index) => {
         return (
           <Card
             key={index}

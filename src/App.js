@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Modal from './components/Modal/Modal';
 import Cards from './components/Cards/Cards';
 import Header from './components/Header/Header';
+import Controls from './components/Nav/Controls';
 import './App.css';
 export default class App extends Component {
   state = {
@@ -11,8 +12,16 @@ export default class App extends Component {
         title: 'hi',
         desc: 'desc',
         time: '2022-04-24T08:32',
-        label: '',
+        label: 'Doing',
         isDone: false,
+      },
+      {
+        id: 1515515,
+        title: 'title',
+        desc: 'desc',
+        time: '2022-04-24T08:32',
+        label: 'Web',
+        isDone: true,
       },
     ],
     labels: ['Doing', 'To Do', 'Web'],
@@ -20,7 +29,7 @@ export default class App extends Component {
     isEditing: false,
     currentTask: {},
     filteredTasks: [],
-    isFilterd: false,
+    isFiltered: false,
   };
 
   addTask = (e) => {
@@ -35,7 +44,7 @@ export default class App extends Component {
     };
 
     this.setState((prevState) => {
-      return { tasks: [...prevState.tasks, task] };
+      return { tasks: [task, ...prevState.tasks] };
     });
 
     this.closeModal('Add');
@@ -79,13 +88,42 @@ export default class App extends Component {
 
   searchByTitle = (word) => {
     if (word === '') {
-      this.setState({ isFilterd: false });
+      this.setState({ isFiltered: false });
     } else {
       const taskAfterFilter = this.state.tasks.filter((task) => {
         return task.title.includes(word);
       });
-      this.setState({ filteredTasks: taskAfterFilter, isFilterd: true });
+      this.setState({ filteredTasks: taskAfterFilter, isFiltered: true });
     }
+  };
+
+  changeFilter = ({ target: { value } }) => {
+    if (value === 'Filter') {
+      this.setState({ isFiltered: false });
+    } else {
+      const taskAfterFilter = this.state.tasks.filter((task) => {
+        return task.label === value;
+      });
+      this.setState({ filteredTasks: taskAfterFilter, isFiltered: true });
+    }
+  };
+
+  doneTasks = () => {
+    const taskAfterFilter = this.state.tasks.filter((task) => {
+      return task.isDone === true;
+    });
+    this.setState({ filteredTasks: taskAfterFilter, isFiltered: true });
+  };
+
+  unDoneTasks = () => {
+    const taskAfterFilter = this.state.tasks.filter((task) => {
+      return task.isDone === false;
+    });
+    this.setState({ filteredTasks: taskAfterFilter, isFiltered: true });
+  };
+
+  allTasks = () => {
+    this.setState({ isFiltered: false });
   };
 
   closeModal(value) {
@@ -125,22 +163,35 @@ export default class App extends Component {
   };
 
   render() {
-    const { tasks, filteredTasks, isFilterd } = this.state;
+    const { tasks, filteredTasks, isFiltered } = this.state;
     return (
       <div>
-        <Header searchByTitle={this.searchByTitle} />
-        <button onClick={() => this.openModal('Add')} value="Add">
-          Add
-        </button>
         {this.renderModal()}
-        <Cards
-          tasks={tasks}
+        <Header
+          searchByTitle={this.searchByTitle}
+          changeFilter={this.changeFilter}
           openModal={this.openModal}
-          changeCheck={this.changeCheck}
-          deleteTask={this.deleteTask}
-          filteredTasks={filteredTasks}
-          isFilterd={isFilterd}
+          doneTasks={this.doneTasks}
+          unDoneTasks={this.unDoneTasks}
+          allTasks={this.allTasks}
         />
+        <section>
+          <Controls
+            changeFilter={this.changeFilter}
+            openModal={this.openModal}
+            doneTasks={this.doneTasks}
+            unDoneTasks={this.unDoneTasks}
+            allTasks={this.allTasks}
+          />{' '}
+          <Cards
+            tasks={tasks}
+            openModal={this.openModal}
+            changeCheck={this.changeCheck}
+            deleteTask={this.deleteTask}
+            filteredTasks={filteredTasks}
+            isFiltered={isFiltered}
+          />
+        </section>
       </div>
     );
   }
