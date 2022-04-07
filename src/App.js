@@ -1,7 +1,7 @@
-// import logo from './logo.svg';
 import { Component } from 'react';
 import Modal from './components/Modal/Modal';
-import Cards from './components/Modal/Cards';
+import Cards from './components/Cards/Cards';
+import Header from './components/Header/Header';
 import './App.css';
 export default class App extends Component {
   state = {
@@ -19,6 +19,8 @@ export default class App extends Component {
     isOpen: false,
     isEditing: false,
     currentTask: {},
+    filteredTasks: [],
+    isFilterd: false,
   };
 
   addTask = (e) => {
@@ -75,6 +77,17 @@ export default class App extends Component {
     this.setState({ tasks: tasksAfterDeleted });
   };
 
+  searchByTitle = (word) => {
+    if (word === '') {
+      this.setState({ isFilterd: false });
+    } else {
+      const taskAfterFilter = this.state.tasks.filter((task) => {
+        return task.title.includes(word);
+      });
+      this.setState({ filteredTasks: taskAfterFilter, isFilterd: true });
+    }
+  };
+
   closeModal(value) {
     if (value === 'Update') this.setState({ isEditing: false });
     else this.setState({ isEditing: false });
@@ -112,9 +125,10 @@ export default class App extends Component {
   };
 
   render() {
-    const { tasks } = this.state;
+    const { tasks, filteredTasks, isFilterd } = this.state;
     return (
       <div>
+        <Header searchByTitle={this.searchByTitle} />
         <button onClick={() => this.openModal('Add')} value="Add">
           Add
         </button>
@@ -124,6 +138,8 @@ export default class App extends Component {
           openModal={this.openModal}
           changeCheck={this.changeCheck}
           deleteTask={this.deleteTask}
+          filteredTasks={filteredTasks}
+          isFilterd={isFilterd}
         />
       </div>
     );
