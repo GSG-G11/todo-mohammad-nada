@@ -20,7 +20,7 @@
 
 ## ✧ Link
 
-Demo link in [netlify](), feel free to check it 🤍
+Demo link in [netlify](https://urtasks.netlify.app/), feel free to check it 🤍
 
 <hr>
 
