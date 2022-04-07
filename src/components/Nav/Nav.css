@@ -34,6 +34,8 @@ button.add-task {
   margin-right: 10px;
 }
 
-.add-task:hover {
+.nav button:hover,
+.nav select:hover {
+  cursor: pointer;
   filter: brightness(90%);
 }
