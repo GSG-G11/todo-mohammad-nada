@@ -28,7 +28,6 @@ export default class App extends Component {
     isOpen: false,
     isEditing: false,
     currentTask: {},
-    // clonedTasks: [],
     filteredTasks: [],
     isFiltered: false,
   };
@@ -86,12 +85,6 @@ export default class App extends Component {
     });
     this.setState({ tasks: tasksAfterDeleted });
   };
-
-  // handleFilters = (value) => {
-  //   this.setState((prevState) => {
-  //     return { filteredTasks: [...prevState, value] };
-  //   });
-  // };
 
   searchByTitle = (word) => {
     if (word === '') {
