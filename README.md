@@ -37,7 +37,7 @@ Demo link in [netlify](), feel free to check it 🤍
 ```
 git clone  https://github.com/GSG-G11/todo-mohammad-nada.git
 
-cd todo-mohammad-nada
+code todo-mohammad-nada
 
 npm i
 
