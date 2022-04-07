@@ -25,11 +25,12 @@
 .desc {
   margin-top: 10px;
   height: 35px;
-  font-size: 14px;
+  font-size: 13.8px;
   overflow: hidden;
   -webkit-line-clamp: 2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .wrap-label-time {
@@ -74,9 +75,9 @@
 
 .wrap-controls input[type='checkbox'] {
   border-radius: 6px;
-  height: 22px;
-  width: 22px;
-  border: 1px solid var(--border);
+  height: 23px;
+  width: 23px;
+  border: 2px solid var(--border);
   appearance: none;
 }
 
@@ -106,7 +107,7 @@
 }
 
 .no-task-img {
-   width: 30%;
+  width: 30%;
   height: 30%;
 }
 
@@ -119,5 +120,5 @@
   font-size: 18px;
   margin-top: 10px;
   font-weight: 300;
-  color: rgba(0, 0, 0, 0.603);
+  color: rgba(0, 0, 0, 0.4);
 }

@@ -8,11 +8,27 @@ export default class App extends Component {
   state = {
     tasks: [
       {
-        id: 63416,
-        title: 'title',
-        desc: 'desc',
-        time: '2022-04-24T08:32',
+        id: 1,
+        title: 'Solve Problems',
+        desc: 'Lorem Ipsum placeholder text for use in your graphic, print and web layouts',
+        time: '2022-07-24T07:32',
         label: 'Web',
+        isDone: true,
+      },
+      {
+        id: 2,
+        title: 'Design a website',
+        desc: 'Lorem Ipsum placeholder text for use in your graphic, print and web layouts placeholder text for use in your graphic, print and web layouts',
+        time: '2022-04-24T08:32',
+        label: 'Doing',
+        isDone: false,
+      },
+      {
+        id: 3,
+        title: 'Watch a movie',
+        desc: 'Lorem Ipsum placeholder text for use in your graphic, print and web layouts',
+        time: '2022-05-20T02:30',
+        label: 'To Do',
         isDone: true,
       },
     ],
@@ -33,7 +49,7 @@ export default class App extends Component {
       desc: desc.value,
       time: time.value,
       label: label.value,
-      isDone: false
+      isDone: false,
     };
 
     this.setState((prevState) => {

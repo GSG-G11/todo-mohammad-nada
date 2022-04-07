@@ -1,8 +1,7 @@
 import './Cards.css';
-import Controls from './../Nav/Controls';
 
 export default function Card({
-  task: { id, title, desc, label, time, isDone = false },
+  task: { id, title, desc, label, time, isDone },
   openModal,
   changeCheck,
   deleteTask,
