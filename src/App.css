@@ -1,9 +1,95 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Readex+Pro:wght@200;300;400;500;600;700&family=Yeseva+One&display=swap');
+
+:root {
+  --main: #f79e44;
+  --mainBackground: #fff;
+  --taskBackground: #f3f3f3;
+  --backLabel: #fff;
+  /* --border: #cccccc; */
+  --border: #e6e6e6;
+  --check: #6be795;
+  --icon: #ccd2e3;
+  --font: #0d161d;
+  --placeholder: #808080;
+  --bg: rgba(0, 0, 0, 0.3);
 }
 
-.card {
-  padding: 15px;
-  margin: 15px;
-  background-color: rgb(215, 215, 215);
+[data-theme='dark'] {
+  --main: #f79e44;
+  --mainBackground: #000;
+  --taskBackground: #1c1c1f;
+  --backLabel: #2f2f2f;
+  --border: #343536;
+  --font: #fff;
+  --fontColor2: #ececec;
+  --bg: rgba(255, 255, 255, 0.1);
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Readex Pro', sans-serif;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: 'Readex Pro', sans-serif;
+  font-weight: 300;
+}
+
+body {
+  font-family: 'Readex Pro', sans-serif;
+  width: 100%;
+  height: 100%;
+  background-color: var(--taskBackground);
+  display: flex;
+}
+
+ul {
+  list-style-type: none;
+}
+
+select {
+  font-family: 'Readex Pro', sans-serif;
+}
+
+a {
+  font-family: 'Readex Pro', sans-serif;
+  color: var(--font);
+  text-decoration: none;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main);
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main);
+}
+
+::selection {
+  background-color: var(--main);
+}
+
+.main-sections {
+  position: absolute;
+  top: 65px;
+  display: flex;
+  align-items: flex-start;
 }

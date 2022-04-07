@@ -1,9 +1,12 @@
+import './Modal.css';
+
 export default function Modal({
   labels,
   addTask,
   isEditing,
   editTask,
   currentTask = {},
+  closeModal,
 }) {
   let defaultTitle = '';
   let defaultDesc = '';
@@ -22,8 +25,15 @@ export default function Modal({
     onSubmitFunc = editTask;
   }
   return (
-    <div>
+    <div className="modal">
       <form onSubmit={onSubmitFunc}>
+        <div className="header-modal">
+          <p>{wordBtn} Task</p>
+          <i
+            onClick={() => closeModal(wordBtn)}
+            className="fa-solid fa-xmark"
+          ></i>
+        </div>
         <label>
           Title
           <input defaultValue={defaultTitle} name="title" required />
@@ -31,7 +41,7 @@ export default function Modal({
 
         <label>
           Description
-          <input defaultValue={defaultDesc} name="desc" required />
+          <textarea defaultValue={defaultDesc} name="desc" required></textarea>
         </label>
 
         <label>

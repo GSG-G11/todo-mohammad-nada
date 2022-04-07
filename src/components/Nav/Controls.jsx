@@ -1,3 +1,4 @@
+import './Nav.css';
 export default function Controls({
   changeFilter,
   openModal,
@@ -6,7 +7,10 @@ export default function Controls({
   allTasks,
 }) {
   return (
-    <div>
+    <nav className="nav">
+      <button className="add-task" onClick={() => openModal('Add')} value="Add">
+        <i className="fa-solid fa-plus"></i>Add
+      </button>
       <button onClick={allTasks} name="all" value="all">
         All
       </button>
@@ -22,9 +26,6 @@ export default function Controls({
         <option value="To Do">To Do</option>
         <option value="Web">Web</option>
       </select>
-      <button onClick={() => openModal('Add')} value="Add">
-        Add
-      </button>
-    </div>
+    </nav>
   );
 }

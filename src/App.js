@@ -16,7 +16,7 @@ export default class App extends Component {
         isDone: false,
       },
       {
-        id: 1515515,
+        id: 63416,
         title: 'title',
         desc: 'desc',
         time: '2022-04-24T08:32',
@@ -126,11 +126,11 @@ export default class App extends Component {
     this.setState({ isFiltered: false });
   };
 
-  closeModal(value) {
+  closeModal = (value) => {
     if (value === 'Update') this.setState({ isEditing: false });
     else this.setState({ isEditing: false });
     this.setState({ isOpen: false });
-  }
+  };
 
   openModal = (value, id) => {
     if (value === 'Update') {
@@ -148,6 +148,7 @@ export default class App extends Component {
           addTask={this.addTask}
           labels={this.state.labels}
           isEditing={this.state.isEditing}
+          closeModal={this.closeModal}
         />
       );
     } else if (this.state.isOpen && this.state.isEditing) {
@@ -157,6 +158,7 @@ export default class App extends Component {
           labels={this.state.labels}
           isEditing={this.state.isEditing}
           currentTask={this.state.currentTask}
+          closeModal={this.closeModal}
         />
       );
     }
@@ -165,7 +167,7 @@ export default class App extends Component {
   render() {
     const { tasks, filteredTasks, isFiltered } = this.state;
     return (
-      <div>
+      <>
         {this.renderModal()}
         <Header
           searchByTitle={this.searchByTitle}
@@ -175,7 +177,7 @@ export default class App extends Component {
           unDoneTasks={this.unDoneTasks}
           allTasks={this.allTasks}
         />
-        <section>
+        <section className="main-sections">
           <Controls
             changeFilter={this.changeFilter}
             openModal={this.openModal}
@@ -192,7 +194,7 @@ export default class App extends Component {
             isFiltered={isFiltered}
           />
         </section>
-      </div>
+      </>
     );
   }
 }
