@@ -1,12 +1,16 @@
 import Search from './Search';
 import logo from '../../logo.svg';
+import './Header.css';
 
 export default function Header({ searchByTitle }) {
   return (
-    <header>
-      <img src={logo} width="50px" height="50px" alt="logo_image" />
+    <header className="header">
+      <img className="logo" src={logo} alt="logo_image" />
       <Search searchByTitle={searchByTitle} />
-      <p>Nada</p>
+      <div className="user-info">
+        <div className="img-profile"></div>
+        <p>Nada</p>
+      </div>
     </header>
   );
 }

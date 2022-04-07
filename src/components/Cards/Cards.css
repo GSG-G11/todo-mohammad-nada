@@ -1,0 +1,124 @@
+.wrap-cards {
+  padding: 20px 30px;
+  width: 80vw;
+  height: calc(100vh - 65px);
+  overflow: auto;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 16px;
+  place-items: start;
+}
+
+.card {
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mainBackground);
+  border-radius: 20px;
+}
+
+.desc {
+  margin-top: 10px;
+  height: 35px;
+  font-size: 13.8px;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.wrap-label-time {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 5rem;
+}
+
+.label-time {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--placeholder);
+  font-weight: 300;
+  border: 1px solid #e6e6e6;
+  border-radius: 50px;
+  padding: 5px 15px;
+  margin-right: 10px;
+  height: 30px;
+  background-color: var(--backLabel);
+}
+
+.wrap-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 1px solid var(--border);
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.wrap-controls button {
+  cursor: pointer;
+}
+
+.wrap-controls button i {
+  color: var(--font);
+  background-color: var(--mainBackground);
+  font-weight: 100;
+  font-size: 1.2rem;
+}
+
+.wrap-controls input[type='checkbox'] {
+  border-radius: 6px;
+  height: 23px;
+  width: 23px;
+  border: 2px solid var(--border);
+  appearance: none;
+}
+
+.wrap-controls input[type='checkbox']:checked {
+  background-color: var(--check);
+  position: relative;
+}
+
+.wrap-controls input[type='checkbox']:checked:after {
+  left: 7px;
+  top: 1px;
+  width: 7px;
+  height: 14px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  content: '';
+  position: absolute;
+}
+
+/* No Task Image */
+.no-task {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px auto;
+}
+
+.no-task-img {
+  width: 30%;
+  height: 30%;
+}
+
+.no-task-p {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.no-task-desc {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.4);
+}

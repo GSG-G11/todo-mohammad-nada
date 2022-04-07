@@ -1,11 +1,14 @@
-import '../../App.css';
+import './Cards.css';
+
 export default function Card({
   task: { id, title, desc, label, time, isDone },
   openModal,
   changeCheck,
   deleteTask,
 }) {
+
   let formatedTime = '';
+
   // Format Date
   const formatDate = (taskDate) => {
     let d = new Date(taskDate),
@@ -41,35 +44,43 @@ export default function Card({
   return (
     <div className="card">
       <p>{title}</p>
-      <p>{desc}</p>
-      <p>{label !== 'select a label' && label}</p>
-      <p>{time && formatedTime} </p>
-      <label>
-        <input
-          type="checkbox"
-          defaultChecked={isDone}
-          name="isDone"
-          onChange={() => {
-            changeCheck(id);
+      <p className="desc">{desc}</p>
+      <div className="wrap-label-time">
+        <p className={label !== 'select a label' ? 'label-time' : ''}>
+          {label !== 'select a label' && label}
+        </p>
+        <p className={time ? 'label-time' : ''}>{time && formatedTime} </p>
+      </div>
+      <div className="wrap-controls">
+        <label>
+          <input
+            type="checkbox"
+            checked={isDone}
+            name="isDone"
+            onChange={() => {
+              changeCheck(id);
+            }}
+          />
+        </label>
+
+        <button
+          onClick={() => {
+            openModal('Update', id);
           }}
-        />
-      </label>
-      <button
-        onClick={() => {
-          openModal('Update', id);
-        }}
-        value="Update"
-      >
-        Update
-      </button>
-      <button
-        onClick={() => {
-          deleteTask(id);
-        }}
-        value="Delete"
-      >
-        Delete
-      </button>
+          value="Update"
+        >
+          <i className="fa-solid fa-pen-to-square"></i>
+        </button>
+
+        <button
+          onClick={() => {
+            deleteTask(id);
+          }}
+          value="Delete"
+        >
+          <i className="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
     </div>
   );
 }
