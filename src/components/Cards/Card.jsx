@@ -2,12 +2,14 @@ import './Cards.css';
 import Controls from './../Nav/Controls';
 
 export default function Card({
-  task: { id, title, desc, label, time, isDone },
+  task: { id, title, desc, label, time, isDone = false },
   openModal,
   changeCheck,
   deleteTask,
 }) {
+
   let formatedTime = '';
+
   // Format Date
   const formatDate = (taskDate) => {
     let d = new Date(taskDate),
@@ -54,7 +56,7 @@ export default function Card({
         <label>
           <input
             type="checkbox"
-            defaultChecked={isDone}
+            checked={isDone}
             name="isDone"
             onChange={() => {
               changeCheck(id);

@@ -20,7 +20,7 @@
   background-color: var(--taskBackground);
 }
 
-.add-task {
+button.add-task {
   display: block;
   text-align: center;
   background-color: var(--main);

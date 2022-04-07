@@ -8,14 +8,6 @@ export default class App extends Component {
   state = {
     tasks: [
       {
-        id: 1515515,
-        title: 'hi',
-        desc: 'desc',
-        time: '2022-04-24T08:32',
-        label: 'Doing',
-        isDone: false,
-      },
-      {
         id: 63416,
         title: 'title',
         desc: 'desc',
@@ -41,6 +33,7 @@ export default class App extends Component {
       desc: desc.value,
       time: time.value,
       label: label.value,
+      isDone: false
     };
 
     this.setState((prevState) => {

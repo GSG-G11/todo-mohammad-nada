@@ -61,9 +61,11 @@
   height: 100px;
 }
 .modal form input:focus,
-.modal form select:focus {
+.modal form select:focus,
+.modal form textarea:focus {
   border: 1px solid var(--main);
 }
+
 .modal form button {
   font-size: 1rem;
   font-weight: 400;
