@@ -37,3 +37,7 @@ button.add-task {
 .add-task:hover {
   filter: brightness(90%);
 }
+
+button.active{
+    background-color: var(--check);
+}
