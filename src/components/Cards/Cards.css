@@ -68,7 +68,7 @@
 .wrap-controls button i {
   color: var(--font);
   background-color: var(--mainBackground);
-  font-weight: 200;
+  font-weight: 100;
   font-size: 1.2rem;
 }
 
@@ -80,7 +80,6 @@
   appearance: none;
 }
 
-/* to add a check mark */
 .wrap-controls input[type='checkbox']:checked {
   background-color: var(--check);
   position: relative;
